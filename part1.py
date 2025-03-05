@@ -78,7 +78,7 @@ def process_inventory(manufacturer_file, price_file, service_date_file):
     ]
 
     with open("PastServiceDateInventory.txt", 'w') as file:
-        for item_id, item in sorted(past_service_items, key=get_service_date):  # Replacing lambda with function
+        for item_id, item in sorted(past_service_items, key=get_service_date):  # here we do use the itemgetter module since we can't use lambda 
             file.write(f"{item_id}, {item['manufacturer']}, {item['item_type']}, {item.get('price', 'N/A')}, "
                    f"{item['service_date'].strftime('%m/%d/%Y')}, {item['damaged']}\n")
 
